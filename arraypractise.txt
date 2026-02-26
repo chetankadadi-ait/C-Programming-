@@ -1,0 +1,219 @@
+22-02-2026
+array
+🔹 1️⃣ Basic Level (1D Array)
+
+Write a program to print all elements of an array.
+
+Find the sum and average of array elements.
+
+Find the largest and smallest number in an array.
+
+Count even and odd numbers in an array.
+
+Reverse an array.
+
+Search for an element (Linear Search).
+
+Count how many times a number appears in an array (Frequency).
+
+Copy elements from one array to another.
+
+🔹 2️⃣ Intermediate Level (Logic Based)
+
+Sort an array in ascending order.
+
+Sort an array in descending order.
+
+Find the second largest element.
+
+Remove duplicate elements from an array.
+
+Merge two arrays.
+
+Insert an element at a specific position.
+
+Delete an element from a specific position.
+
+Rotate array to left or right by one position.
+
+🔹 3️⃣ 2D Array Questions (Matrix)
+
+Print a 2D array (matrix).
+
+Add two matrices.
+
+Multiply two matrices.
+
+Find transpose of a matrix.
+
+Print diagonal elements of matrix.
+
+Find sum of each row and each column.
+
+🔹 4️⃣ String (Character Array) Questions
+
+Find length of string without using strlen().
+
+Reverse a string.
+
+Check whether a string is palindrome.
+
+Count vowels and consonants.
+
+Compare two strings without using strcmp().
+1)#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int number[4]={3,6,8,0};
+    int accessararry=number[2];
+    printf("value=%d\n",accessararry);
+    char chararray[5]={'A','B','C','D','K'};
+    int characcess=chararray[4];
+    printf("character=%c\n",characcess);
+     char chararrayyy[5]={'A','B','C','D','K'};
+     for (int i=0;i<4;i++)
+     {
+         printf("element =%d\n",number[i]);
+     }
+}
+2)2d array
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int rowcoloumn[2][3]={
+    {2,3,4},
+    {4,6,8}
+    };
+    int i,j;
+    for (i=0;i<2;i++){
+        for (j=0;j<3;j++)
+        {
+            printf("number[%d][%d]=%d\n",i,j,rowcoloumn[i][j]);
+        }
+    }
+}
+3)Sum and Average of Array Elements
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int sum=0;
+    float average;
+    printf("enter the number of elments\n");
+    scanf("%d",&n);
+             printf("enter the elements\n");
+             for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+    }
+    for (i=0;i<n;i++){
+    sum=sum+arr[i];
+
+    }
+    average=sum/n;
+    printf("sum of elements are=%d\n",sum);
+    printf("avearge of elements are =%f",average);
+    return 0;
+}
+4)largestnadsmallest
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int arr[100],n,i;
+    int largest,smallest;
+    printf("enter number of elements");
+    scanf("%d",&n);
+    printf("enter the numbers");
+    for(i=0;i<n;i++)
+{
+
+      scanf("%d",&arr[i]);
+    }
+    largest = smallest = arr[0];
+
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > largest)
+            largest = arr[i];
+
+        if(arr[i] < smallest)
+            smallest = arr[i];
+    }
+
+    printf("largest = %d\n", largest);
+    printf("smallest = %d\n", smallest);
+
+    return 0;
+}
+5)reverse an array
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Reversed array:\n");
+
+    for(i = n-1; i >= 0; i--)
+        printf("%d ", arr[i]);
+
+    return 0;
+}
+6)linear search
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int arr[50],n,i;
+   int key=44;
+   int found = 0;
+   printf("enter number of elmements\n");
+   scanf("%d",&n);
+   printf("enter numbers\n");
+   for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+   if (key ==arr[i]){
+         printf("Element found at position %d\n", i+1);
+            found = 1;
+    break;
+   }
+    }
+   if(found == 0)
+        printf("Element not found\n");
+   return 0;
+}
+7)linear search
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    for(i = 0; i < n; i++)
+    {
+        if(arr[i] == key)
+        {
+            printf("Element found at position %d\n", i+1);
+            found = 1;
+            break;
+        }
+    }
+
+    if(found == 0)
+        printf("Element not found\n");
+
+    return 0;
+}
