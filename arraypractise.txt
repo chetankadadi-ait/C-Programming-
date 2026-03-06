@@ -1,0 +1,406 @@
+22-02-2026
+array
+Compare two strings without using strcmp().
+1)#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int number[4]={3,6,8,0};
+    int accessararry=number[2];
+    printf("value=%d\n",accessararry);
+    char chararray[5]={'A','B','C','D','K'};
+    int characcess=chararray[4];
+    printf("character=%c\n",characcess);
+     char chararrayyy[5]={'A','B','C','D','K'};
+     for (int i=0;i<4;i++)
+     {
+         printf("element =%d\n",number[i]);
+     }
+}
+2)2d array
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int rowcoloumn[2][3]={
+    {2,3,4},
+    {4,6,8}
+    };
+    int i,j;
+    for (i=0;i<2;i++){
+        for (j=0;j<3;j++)
+        {
+            printf("number[%d][%d]=%d\n",i,j,rowcoloumn[i][j]);
+        }
+    }
+}
+3)Sum and Average of Array Elements
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+    int sum=0;
+    float average;
+    printf("enter the number of elments\n");
+    scanf("%d",&n);
+             printf("enter the elements\n");
+             for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+    }
+    for (i=0;i<n;i++){
+    sum=sum+arr[i];
+
+    }
+    average=sum/n;
+    printf("sum of elements are=%d\n",sum);
+    printf("avearge of elements are =%f",average);
+    return 0;
+}
+4)largestnadsmallest
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int arr[100],n,i;
+    int largest,smallest;
+    printf("enter number of elements");
+    scanf("%d",&n);
+    printf("enter the numbers");
+    for(i=0;i<n;i++)
+{
+
+      scanf("%d",&arr[i]);
+    }
+    largest = smallest = arr[0];
+
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > largest)
+            largest = arr[i];
+
+        if(arr[i] < smallest)
+            smallest = arr[i];
+    }
+
+    printf("largest = %d\n", largest);
+    printf("smallest = %d\n", smallest);
+
+    return 0;
+}
+5)reverse an array
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Reversed array:\n");
+
+    for(i = n-1; i >= 0; i--)
+        printf("%d ", arr[i]);
+
+    return 0;
+}
+6)linear search
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int arr[50],n,i;
+   int key=44;
+   int found = 0;
+   printf("enter number of elmements\n");
+   scanf("%d",&n);
+   printf("enter numbers\n");
+   for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+   if (key ==arr[i]){
+         printf("Element found at position %d\n", i+1);
+            found = 1;
+    break;
+   }
+    }
+   if(found == 0)
+        printf("Element not found\n");
+   return 0;
+}
+7)linear search
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    for(i = 0; i < n; i++)
+    {
+        if(arr[i] == key)
+        {
+            printf("Element found at position %d\n", i+1);
+            found = 1;
+            break;
+        }
+    }
+
+    if(found == 0)
+        printf("Element not found\n");
+
+    return 0;
+}
+8)sum and average
+#include <stdio.h>
+
+int main(void) {
+    int scores[6] = {10, 20, 30, 40,77, 50};
+    int sum = 0;
+
+    for (int i = 0; i < 6; i++)
+        sum =sum+scores[i];
+
+    float avg = (float)sum / 5;  // cast to float for decimals
+
+    printf("Sum     : %d\n", sum);
+    printf("Average : %.4hf\n", avg);
+    return 0;
+}
+
+9)print array using functions
+#include <stdio.h>
+
+void printArray(const int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main(void) {
+    int nums[5] = {10, 20, 30, 40, 50};
+    printf("Array : ");
+    printArray(nums, 5);
+    return 0;
+}
+10)print numbers and reverse number
+#include <stdio.h>
+
+int main(void) {
+    int arr[5];
+
+    printf("Enter 5 numbers: ");
+    for (int i = 0; i < 5; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Original order : ");
+    for (int i = 0; i < 5; i++)
+        printf("%d ", arr[i]);
+
+
+    printf("\nReverse order  : ");
+    for (int i = 4; i >= 0; i--)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+    return 0;
+}
+11)double all the element
+#include <stdio.h>
+
+void doubleAll(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        arr[i] *= 2;
+}
+
+void printArray(const int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+}
+
+int main(void) {
+    int nums[5] = {55, 27, 38, 40.6, 5.2};
+
+    printf("Before : ");
+    printArray(nums, 5);
+
+    doubleAll(nums, 5);
+
+    printf("After  : ");
+    printArray(nums, 5);
+    return 0;
+}
+12) Store and Print 5 Numbers
+Task: Read 5 integers → print in same order → print in reverse order
+Input: 10 20 30 40 50
+Output:
+Original order : 10 20 30 40 50
+Reverse order : 50 40 30 20 10
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    int arr[5];
+    printf("enter 5 integer\n");
+    for(int i=0;i<5;i++){
+    scanf("%d",&arr[i]);
+    }
+    printf("original order \n");
+
+
+for(int i=0;i<5;i++){
+    printf(" %d",arr[i]);
+}
+printf("\nreverse order\n");
+for(int i=4;i>=0;i--){
+printf("%d",arr[i]);
+}
+printf("\n");
+return 0;
+
+
+}
+13) Find Max and Min
+Task: Read 6 integers → print maximum and minimum
+Input: 4 7 1 9 3 6
+Output:
+Maximum : 9
+Minimum : 1
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int arr[5];
+   int max,min;
+   printf("enter number:\n");
+   for(int i=0;i<=4;i++){
+    scanf("%d",&arr[i]);
+
+   printf("  %d",arr[i]);
+   }
+   max=arr[0];
+   min=arr[0];
+    for(int i=0;i<=4;i++){
+            if(arr[i]>max)
+    max=arr[i];
+    if (arr[i]<min)
+        min=arr[i];
+    }
+    printf("min %d\n",min);
+    printf("max %d\n",max);
+}
+14)Q3) Sum and Average
+Task: Store 5 float values → print sum and average
+Input: 10.5 20.0 30.5 40.0 50.0
+Output:
+Sum : 151.00
+Average : 30.20
+#include <stdio.h>
+
+int main()
+{
+    float arr[5];
+    float sum = 0.0, average;
+
+    printf("Enter 5 float values:\n");
+
+    for(int i = 0; i < 5; i++)
+    {
+        scanf("%f", &arr[i]);
+        sum = sum + arr[i];
+    }
+
+    average = sum / 5;
+
+    printf("Sum : %.2f\n", sum);
+    printf("Average : %.2f\n", average);
+
+    return 0;
+}
+15)evenandoddcount
+#include <stdio.h>
+#include <stdlib.h>
+
+void countevenodd(int arr[], int size)
+{
+    int even = 0, odd = 0;
+
+    printf("Even numbers: ");
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            printf("%d ", arr[i]);
+            even++;
+        }
+    }
+
+    printf("\nOdd numbers: ");
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
+            printf("%d ", arr[i]);
+            odd++;
+        }
+    }
+
+    printf("\nEven count: %d", even);
+    printf("\nOdd count: %d\n", odd);
+}
+
+int main()
+{
+    int arr[8];
+
+    printf("Enter 8 numbers:\n");
+    for (int i = 0; i < 8; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    countevenodd(arr, 8);
+
+    return 0;
+}
+16)copy arrys
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+int arr1[5],arr2[5];
+printf("enter the 5 numbers\n");
+for (int i=0;i<5;i++){
+    scanf("%d",&arr1[i]);
+
+}
+for (int i=0;i<5;i++){
+    arr2[i]=arr1[i];
+}
+printf("original\n");
+for(int i=0;i<5;i++){
+printf("%d\n",arr1[i]);
+}
+printf("copied\n");
+for(int i=0;i<5;i++){
+        printf("%d",arr2[i]);
+
+
+}
+return 0;
+}
+
+
+
+
