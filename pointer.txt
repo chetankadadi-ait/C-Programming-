@@ -1,0 +1,70 @@
+pointer
+1)
+#include <stdio.h>
+
+int main(void) {
+    int x = 10;
+    int *p = &x;   // p holds the address of x
+
+    printf("Value of x     : %d\n", x);
+    printf("Address of x   : %p\n", (void * )&x);
+    printf("Value of p     : %p\n", (void * )p);    // same as &x
+    printf("Value via *p   : %d\n", *p);           // same as x
+
+    *p = 50;   // modify x through the pointer
+    printf("x after *p=50  : %d\n", x);            // x is now 50
+
+    return 0;
+}
+2)Write a C program that:
+	• Declares an integer variable num = 25
+	• Declares a pointer ptr and assigns it the address of num
+	• Prints the value of num, the address of num, the value stored in ptr, and the value pointed to by ptr
+	• Verifies that &num and ptr print the same address
+
+Expected output (addresses will vary):
+
+Value of num    : 25
+Address of num  : 0x7ffc...
+Value of ptr    : 0x7ffc...
+Value via *ptr  : 25
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int num=25;
+   int *ptr=&num;
+   printf("enter the value of num %d\n",num);
+   printf("enter the adress of num %p\n",(void *)&num);
+   printf("enter the adress of *ptr %p\n",(void*) ptr);
+   printf("value of *ptr %d\n",*ptr);
+}
+3)#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a=5;
+    int *p=&a;
+    printf("before a =%d\n",a);
+    *p=99;
+    printf("after a= %d",a);
+}
+4)#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int x=1,y=2,z=3;
+   int *p;
+   p=&x;
+   printf("x=   %d\n",*p);
+    p = &y;                    
+    printf("y = %d\n", *p);
+
+    p = &z;                    
+    printf("z = %d\n", *p);
+
+    return 0;
+}
