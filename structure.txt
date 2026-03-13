@@ -1,0 +1,241 @@
+1)Write a C program using structure to store:
+
+Name
+
+ID
+
+Salary
+
+and display the employee details.
+#include <stdio.h>
+
+struct employee {
+    char firstName[20];
+    char lastName[20];
+    unsigned int age;
+    char gender;
+    double hourlySalary;
+}; /* end struct employee */
+
+int main(void) {
+    struct employee e1 = { "Alice", "Smith", 30, 'F', 25.50 };
+
+    printf("Name   : %s %s\n", e1.firstName, e1.lastName);
+    printf("Age    : %u\n",    e1.age);
+    printf("Gender : %c\n",    e1.gender);
+    printf("Salary : $%.2f/hr\n", e1.hourlySalary);
+
+    /* Assign one struct to another */
+    struct employee e2 = e1;
+    e2.age = 28;
+    printf("\ne1 age : %u  (unchanged)\n", e1.age);
+    printf("e2 age : %u  (modified copy)\n", e2.age);
+    
+
+    printf("\nsizeof(struct employee) = %zu bytes\n", sizeof(struct employee));
+
+    return 0;
+}
+2)#include <stdio.h>
+
+struct employee {
+    char firstName[20];
+    unsigned int age;
+    double hourlySalary;
+};
+
+void giveRaise(struct employee *ePtr, double amount) {
+    ePtr->hourlySalary += amount;   /* arrow: modify via pointer */
+}
+
+void printEmployee(struct employee e) {
+    /* dot: direct variable (pass by value copy) */
+    printf("%-10s  Age: %u  $%.2f/hr\n",
+           e.firstName, e.age, e.hourlySalary);
+}
+
+int main(void) {
+    struct employee e1 = { "Alice", 30, 25.50 };
+    struct employee *ePtr = &e1;
+
+    printf("Before raise:\n");
+    printEmployee(e1);
+
+    giveRaise(ePtr, 5.00);   /* pass by pointer */
+
+    printf("After raise:\n");
+    printEmployee(e1);
+
+    printf("\nsizeof(struct employee) = %zu bytes\n",
+           sizeof(struct employee));
+
+    return 0;
+}
+3) Define, Initialize, and Print a Student Struct
+Define a struct student with members char name[30], unsigned int rollNumber, and double gpa. Declare a variable s1, initialize it with "Omar", 101, 3.85, and print all three members.
+
+
+Expected Output:
+Name: Omar
+Roll: 101
+GPA : 3.85
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    struct student{
+    char name[30];
+    unsigned int rollnumber;
+    double gpa;
+    };
+    struct student s1={"omar",101,7.85};
+    printf("name %s\n",s1.name);
+    printf("rollnumber %u\n",s1.rollnumber);
+    printf(" gpa %.2f\n",s1.gpa);
+    return 0;
+
+}
+4)Assign One Struct to Another and Modify Copy
+Define a struct point with int members x and y. Declare p1 = {3, 7} and assign it to p2. Change p2.x to 10 and print both points to prove p1 was not affected.
+
+Expected Output:
+p1: (3, 7)
+p2: (10, 7)
+#include <iostream>
+
+struct employee{
+int x=3;
+int y=7;
+};
+int main(){
+struct employee p1={3,7};
+printf("p1:%d %d\n",p1.x,p1.y);
+
+struct employee p2=p1;
+p2={10,7};
+printf("p2:%d %d",p2.x,p2.y);
+}
+5)Array of Structs — Sensor Table
+Define a struct sensor with char label[10], int pin, and float voltage. Declare an array readings[3] initialized with {"Temp", 2, 3.3}, {"Humid", 5, 5.0}, {"Pressure", 8, 1.8}. Loop through and print each sensor, then print the total sizeof of the array.
+
+Expected Output:
+label=Temp        pin=2  voltage=3.30
+label=Humid       pin=5  voltage=5.00
+label=Pressure    pin=8  voltage=1.80
+Total array size: XX bytes
+#include <stdio.h>
+#include <stdlib.h>
+struct sensor {
+char label[10];
+ int pin;
+ float voltage;
+};
+int main()
+{
+  struct sensor arr [3]=  {{"Temp", 2, 3.3}, {"Humid", 5, 5.0}, {"Pressure", 8, 1.8}};
+for (int i=0;i<3;i++){
+        printf("label=%s ,pin=%d ,voltage=%f \n",arr[i].label,arr[i].pin,arr[i].voltage);
+
+}
+}
+6)Scale a Rectangle via Pointer
+Define a struct rectangle with double members width and height. Write a function scaleRect that takes a pointer to a rectangle and a scale factor, and multiplies both dimensions. In main, declare rect = {4.0, 2.5}, call scaleRect(&rect, 2.0), and print before and after.
+
+Expected Output:
+Before: width=4.00  height=2.50
+After : width=8.00  height=5.00
+#include <stdio.h>
+
+struct rectangle{
+    double width;
+    double height;
+};
+
+void mult(struct rectangle *ePtr, double amount)
+{
+    ePtr->width *= amount;
+    ePtr->height *= amount;
+}
+
+int main()
+{
+    struct rectangle e1 = {4.0, 2.5};
+
+    printf("Before: width=%.2f  height=%.2f\n", e1.width, e1.height);
+
+    mult(&e1, 2);
+
+    printf("After : width=%.2f  height=%.2f\n", e1.width, e1.height);
+
+    return 0;
+}
+7) Pass by Value vs Pass by Reference
+Define a struct counter with a single int member value. Write incrementByValue (takes struct by value — no effect on original) and incrementByRef (takes pointer — modifies original). Declare cnt = {10}, call both, and print after each to show the difference.
+
+
+Expected Output:
+Initial               : 10
+After incrementByValue: 10   (no change — copy)
+After incrementByRef  : 11   (changed — pointer)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct count{
+    int value;
+};
+
+void incrementByValue(struct count e){
+    e.value++;
+}
+
+void incrementByRef(struct count *ptr){
+    ptr->value++;
+}
+
+int main(){
+
+    struct count e1 = {10};
+
+    printf("Initial               : %d\n", e1.value);
+
+    incrementByValue(e1);
+    printf("After incrementByValue: %d\n", e1.value);
+
+    incrementByRef(&e1);
+    printf("After incrementByRef  : %d\n", e1.value);
+
+    return 0;
+}
+8) Dot, Arrow, and Deref — All Three Ways
+Define a struct device with char name[15], int id, and float voltage. Declare d1 = {"Arduino", 1, 5.0} and a pointer dPtr = &d1. Print sizeof(struct device), then print d1.name (dot), dPtr->voltage (arrow), and (*dPtr).id (deref + dot).
+
+
+Expected Output:
+sizeof(struct device)  = XX bytes
+Name   (dot)   : Arduino
+Voltage(arrow) : 5.00
+ID     (deref) : 1
+#include <stdio.h>
+#include <stdlib.h>
+
+struct device{
+    char name[15];
+    int id;
+    float voltage;
+};
+
+int main(){
+
+    struct device d1 = {"Arduino", 1, 5.0};
+    struct device *dPtr = &d1;
+
+    printf("sizeof(struct device)  = %lu bytes\n", sizeof(struct device));
+
+    printf("Name   (dot)   : %s\n", d1.name);
+    printf("Voltage(arrow) : %.2f\n", dPtr->voltage);
+    printf("ID     (deref) : %d\n", (*dPtr).id);
+
+    return 0;
+}
